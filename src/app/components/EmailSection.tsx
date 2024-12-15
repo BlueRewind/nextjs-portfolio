@@ -1,43 +1,64 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const EmailSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const recaptcha = useRef(null)
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
-
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
-      method: "POST",
-      // Tell the server we're sending JSON.
+  const checkCaptcha = async (captchaValue) => {
+    const captchaEndpoint = '/api/captchaVerify'
+    const response = await fetch(captchaEndpoint, {
+      method: 'POST',
+      body: JSON.stringify({ captchaValue }),
       headers: {
         "Content-Type": "application/json",
       },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
+    });
+    const data = await response.json();
+  }
 
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const captchaValue = recaptcha.current.getValue()
+    if (!captchaValue) {
+      alert('Please verify the reCAPTCHA!')
+    }
 
-    if (response.status === 200) {
-      console.log("Message sent.");
-      setEmailSubmitted(true);
+    const captchaValid = await checkCaptcha(captchaValue);
+    
+    if (captchaValid.success) {
+      const data = {
+        email: e.target.email.value,
+        subject: e.target.subject.value,
+        message: e.target.message.value,
+      };
+      const JSONdata = JSON.stringify(data);
+      const endpoint = "/api/send";
+
+      const options = {
+        method: "POST",
+        body: JSONdata,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const response = await fetch(endpoint, options);
+      const resData = await response.json();
+
+      if (response.status === 200) {
+        console.log("Message sent.");
+        setEmailSubmitted(true);
+      }
     }
   };
+
+  console.log(process.env)
 
   return (
     <section
@@ -47,13 +68,12 @@ const EmailSection = () => {
       <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
       <div className="z-10">
         <h5 className="text-xl font-bold text-white my-2">
-          Let&apos;s Connect
+          Hey again!
         </h5>
         <p className="text-[#ADB7BE] mb-4 max-w-md">
-          {" "}
-          I&apos;m currently looking for new opportunities, my inbox is always
-          open. Whether you have a question or just want to say hi, I&apos;ll
-          try my best to get back to you!
+        Thanks for stopping by and exploring my portfolio. I&apos;m passionate about sharing my work 
+        and continually improving my skills. If you have feedback, suggestions, or just want to 
+        chat about tech, feel free to reach out—I&apos;d love to hear from you!
         </p>
         <div className="socials flex flex-row gap-2">
           <Link href="github.com">
@@ -123,6 +143,7 @@ const EmailSection = () => {
             >
               Send Message
             </button>
+            <ReCAPTCHA ref={recaptcha} sitekey={"mdjfghdjkgsdjhgdfkhjg"}/>
           </form>
         )}
       </div>
