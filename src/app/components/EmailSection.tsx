@@ -1,16 +1,14 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import GithubIcon from "../../../public/github-icon.svg";
 import LinkedinIcon from "../../../public/linkedin-icon.svg";
 import Link from "next/link";
 import Image from "next/image";
-import ReCAPTCHA from "react-google-recaptcha";
 
 const EmailSection = () => {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
-  const recaptcha = useRef(null)
+  const [emailSubmitted, _setEmailSubmitted] = useState(false);
 
-  const checkCaptcha = async (captchaValue) => {
+  const _checkCaptcha = async (captchaValue) => {
     const captchaEndpoint = '/api/captchaVerify'
     const response = await fetch(captchaEndpoint, {
       method: 'POST',
@@ -21,44 +19,6 @@ const EmailSection = () => {
     });
     const data = await response.json();
   }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const captchaValue = recaptcha.current.getValue()
-    if (!captchaValue) {
-      alert('Please verify the reCAPTCHA!')
-    }
-
-    const captchaValid = await checkCaptcha(captchaValue);
-    
-    if (captchaValid.success) {
-      const data = {
-        email: e.target.email.value,
-        subject: e.target.subject.value,
-        message: e.target.message.value,
-      };
-      const JSONdata = JSON.stringify(data);
-      const endpoint = "/api/send";
-
-      const options = {
-        method: "POST",
-        body: JSONdata,
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-
-      const response = await fetch(endpoint, options);
-      const resData = await response.json();
-
-      if (response.status === 200) {
-        console.log("Message sent.");
-        setEmailSubmitted(true);
-      }
-    }
-  };
-
-  console.log(process.env)
 
   return (
     <section
@@ -90,7 +50,7 @@ const EmailSection = () => {
             Email sent successfully!
           </p>
         ) : (
-          <form className="flex flex-col" onSubmit={handleSubmit}>
+          <form className="flex flex-col" onSubmit={() => {}}>
             <div className="mb-6">
               <label
                 htmlFor="email"
@@ -143,7 +103,6 @@ const EmailSection = () => {
             >
               Send Message
             </button>
-            <ReCAPTCHA ref={recaptcha} sitekey={"mdjfghdjkgsdjhgdfkhjg"}/>
           </form>
         )}
       </div>
