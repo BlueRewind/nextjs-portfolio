@@ -14,27 +14,27 @@ const TAB_DATA = [
               <div>
                   {/* <h3 className="text-lg font-semibold text-sky-400 mb-3"></h3> */}
                   <ul className="flex flex-wrap gap-4">
-                      <SkillsCard title="React" path="/react.svg" alt="React" />
-                      <SkillsCard title="TypeScript" path="/images/icon/typescript.png" alt="TypeScript" />
-                      <SkillsCard title="HTML" path="/images/icon/html.png" alt="HTML" />
-                      <SkillsCard title="Next.js" path="/next.svg" alt="Next.js" />
-                      <SkillsCard title="Tailwind CSS" path="/images/icon/tailwind.png" alt="Tailwind" />
-                      <SkillsCard title="MUI" path="/images/icon/mui.png" alt="MUI" />
-                      <SkillsCard title="PixiJS" path="/pixijs.svg" alt="PixiJS" />
-                      <SkillsCard title="Java" path="/java.svg" alt="Java" />
-                      <SkillsCard title="Spring Boot" path="/images/icon/spring_boot.png" alt="Spring" />
-                      <SkillsCard title="NodeJS" path="/nodejs.svg" alt="NodeJS" />
-                      <SkillsCard title="GraphQL" path="/graphql.svg" alt="GraphQL" />
-                      <SkillsCard title="Kafka" path="/kafka.svg" alt="Kafka" />
-                      <SkillsCard title="PostgreSQL" path="/images/icon/postgres.png" alt="PostgreSQL" />
-                      <SkillsCard title="MongoDB" path="/mongodb.svg" alt="MongoDB" />
-                      <SkillsCard title="Docker" path="/docker.svg" alt="Docker" />
-                      <SkillsCard title="Kubernetes" path="/images/icon/Kubernetes.png" alt="Kubernetes" />
-                      <SkillsCard title="AWS" path="/images/icon/AWS.png" alt="AWS" />
-                      <SkillsCard title="Ansible" path="/images/icon/Ansible.png" alt="Ansible" />
-                      <SkillsCard title="Jenkins" path="/images/icon/jenkins.png" alt="Jenkins" />
-                      <SkillsCard title="SST" path="/images/icon/SST.png" alt="SST" />
-                      <SkillsCard title="DataDog" path="/Datadog.svg" alt="DataDog" />
+                      <SkillsCard title="" path="/react.svg" alt="React" />
+                      <SkillsCard title="" path="/images/icon/typescript.png" alt="TypeScript" />
+                      <SkillsCard title="" path="/images/icon/html.png" alt="HTML" />
+                      <SkillsCard title="" path="/next.svg" alt="Next.js" />
+                      <SkillsCard title="" path="/images/icon/tailwind.png" alt="Tailwind" />
+                      <SkillsCard title="" path="/images/icon/mui.png" alt="MUI" />
+                      <SkillsCard title="" path="/pixijs.svg" alt="PixiJS" />
+                      <SkillsCard title="" path="/java.svg" alt="Java" />
+                      <SkillsCard title="" path="/images/icon/spring_boot.png" alt="Spring" />
+                      <SkillsCard title="" path="/nodejs.svg" alt="NodeJS" />
+                      <SkillsCard title="" path="/graphql.svg" alt="GraphQL" />
+                      <SkillsCard title="" path="/kafka.svg" alt="Kafka" />
+                      <SkillsCard title="" path="/images/icon/postgres.png" alt="PostgreSQL" />
+                      <SkillsCard title="" path="/mongodb.svg" alt="MongoDB" />
+                      <SkillsCard title="" path="/docker.svg" alt="Docker" />
+                      <SkillsCard title="" path="/images/icon/Kubernetes.png" alt="Kubernetes" />
+                      <SkillsCard title="" path="/images/icon/AWS.png" alt="AWS" />
+                      <SkillsCard title="" path="/images/icon/Ansible.png" alt="Ansible" />
+                      <SkillsCard title="" path="/images/icon/jenkins.png" alt="Jenkins" />
+                      <SkillsCard title="" path="/images/icon/SST.png" alt="SST" />
+                      <SkillsCard title="" path="/Datadog.svg" alt="DataDog" />
                   </ul>
               </div>
           </div>

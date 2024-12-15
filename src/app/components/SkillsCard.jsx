@@ -11,6 +11,7 @@ export const SkillsCard = ({ title, alt, path }) => {
                 className="md:w-12 md:h-12"
                 priority={false}
             />
+            <span className="text-sm md:text-base text-white">{title}</span>
         </li>
     );
 };
