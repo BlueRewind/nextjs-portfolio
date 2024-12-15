@@ -1,22 +1,30 @@
 "use client";
 import React, { useState, useRef } from "react";
-import ProjectCard from "./ProjectCard";
+import { BlogCard } from "./BlogCard";
 import { ProjectTag } from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
-const projectsData = [
+interface Blog {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tag: string[];
+  previewUrl: string;
+}
+
+const blogData: Blog[] = [
   {
     id: 1,
     title: "Top Lessons from My Journey as a Developer",
     description: "Talking through key challenges, achievements and lessons that shaped my technical growth",
     image: "/images/projects/1.jpg",
     tag: ["All", "Growth"],
-    gitUrl: "/",
     previewUrl: "/",
   },
 ];
 
-const ProjectsSection = () => {
+export const BlogsSection = () => {
   const [tag, setTag] = useState("All");
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -25,7 +33,7 @@ const ProjectsSection = () => {
     setTag(newTag);
   };
 
-  const filteredProjects = projectsData.filter((project) =>
+  const filteredBlogs = blogData.filter((project) =>
     project.tag.includes(tag)
   );
 
@@ -62,8 +70,8 @@ const ProjectsSection = () => {
         />
       </div>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
-        {filteredProjects.length > 0 ? 
-          filteredProjects.map((project, index) => (
+        {filteredBlogs.length > 0 ? 
+          filteredBlogs.map((project, index) => (
             <motion.li
               key={index}
               variants={cardVariants}
@@ -71,12 +79,11 @@ const ProjectsSection = () => {
               animate={isInView ? "animate" : "initial"}
               transition={{ duration: 0.3, delay: index * 0.4 }}
             >
-              <ProjectCard
+              <BlogCard
                 key={project.id}
                 title={project.title}
                 description={project.description}
                 imgUrl={project.image}
-                gitUrl={project.gitUrl}
                 previewUrl={project.previewUrl}
               />
             </motion.li>
@@ -88,5 +95,3 @@ const ProjectsSection = () => {
     </section>
   );
 };
-
-export default ProjectsSection;

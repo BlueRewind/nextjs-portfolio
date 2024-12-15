@@ -9,7 +9,11 @@ export const metadata = {
   description: 'Welcome to my portfolio',
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ 
+  children 
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <Analytics />

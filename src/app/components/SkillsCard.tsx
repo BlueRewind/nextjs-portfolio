@@ -1,6 +1,12 @@
 import Image from "next/image";
 
-export const SkillsCard = ({ title, alt, path }) => {
+interface SkillsCardProps {
+    title: string;
+    alt: string;
+    path: string;
+}
+
+export const SkillsCard = ({ title, alt, path }: SkillsCardProps) => {
     return (
         <li className="flex items-center gap-1 bg-[#232323] p-1">
             <Image 

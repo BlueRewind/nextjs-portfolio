@@ -12,7 +12,6 @@ const TAB_DATA = [
       <section>
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-8">
               <div>
-                  {/* <h3 className="text-lg font-semibold text-sky-400 mb-3"></h3> */}
                   <ul className="flex flex-wrap gap-4">
                       <SkillsCard title="" path="/react.svg" alt="React" />
                       <SkillsCard title="" path="/images/icon/typescript.png" alt="TypeScript" />
@@ -38,7 +37,7 @@ const TAB_DATA = [
                   </ul>
               </div>
           </div>
-        </section>
+      </section>
     ),
   },
   {
@@ -62,7 +61,7 @@ const TAB_DATA = [
   },
 ];
 
-const AboutSection = () => {
+export const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
 
@@ -111,5 +110,3 @@ const AboutSection = () => {
     </section>
   );
 };
-
-export default AboutSection;

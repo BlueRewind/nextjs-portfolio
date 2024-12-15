@@ -1,9 +1,12 @@
 import React from "react";
 
+enum ButtonStyles {
+  SELECTED="text-white border-primary-500",
+  DEFAULT="text-[#ADB7BE] border-slate-600 hover:border-white"
+}
+
 export const ProjectTag = ({ name, onClick, isSelected }) => {
-  const buttonStyles = isSelected
-    ? "text-white border-primary-500"
-    : "text-[#ADB7BE] border-slate-600 hover:border-white";
+  const buttonStyles = isSelected ? ButtonStyles.SELECTED : ButtonStyles.DEFAULT;
 
   return (
     <button

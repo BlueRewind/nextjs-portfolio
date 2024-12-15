@@ -1,9 +1,9 @@
-import HeroSection from "./components/HeroSection";
-import Navbar from "./components/Navbar";
-import AboutSection from "./components/AboutSection";
-import ProjectsSection from "./components/ProjectsSection";
-import Footer from "./components/Footer";
-import AchievementsSection from "./components/AchievementsSection";
+import { HeroSection } from "./components/HeroSection";
+import { Navbar } from "./components/Navbar";
+import { AboutSection } from "./components/AboutSection";
+import { BlogsSection } from "./components/BlogsSection";
+import { Footer } from "./components/Footer";
+import { AchievementsSection } from "./components/AchievementsSection";
 import { configDotenv } from "dotenv";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
         <HeroSection />
         <AchievementsSection />
         <AboutSection />
-        <ProjectsSection />
+        <BlogsSection />
       </div>
       <Footer />
     </main>

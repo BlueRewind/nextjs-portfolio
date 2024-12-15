@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEventHandler, ReactNode } from "react";
 import { motion } from "framer-motion";
 
 const variants = {
@@ -6,7 +6,13 @@ const variants = {
   active: { width: "calc(100% - 0.75rem)" },
 };
 
-const TabButton = ({ active, selectTab, children }) => {
+interface TabButtonProps {
+  active: boolean;
+  selectTab: MouseEventHandler<HTMLButtonElement>;
+  children: ReactNode;
+}
+
+const TabButton = ({ active, selectTab, children }: TabButtonProps) => {
   const buttonClasses = active ? "text-white" : "text-[#ADB7BE]";
 
   return (

@@ -5,7 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const HeroSection = () => {
+export const HeroSection = () => {
   return (
     <section className="lg:py-16">
       <div className="grid grid-cols-1 sm:grid-cols-12">
@@ -76,5 +76,3 @@ const HeroSection = () => {
     </section>
   );
 };
-
-export default HeroSection;
