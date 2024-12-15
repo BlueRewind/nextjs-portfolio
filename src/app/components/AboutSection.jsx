@@ -79,7 +79,7 @@ const AboutSection = () => {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
         <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-red-500 to-pink-500 mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
-          I'm a professional with over 6 years of experience designing, developing, and maintaining secure, 
+          I&apos;m a professional with over 6 years of experience designing, developing, and maintaining secure, 
           scalable full-stack applications. In my spare time, I do bug bounty hunting and am upskilling in 
           penetration testing, malware development, and reverse engineering.
           </p>
