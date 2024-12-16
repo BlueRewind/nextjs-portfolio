@@ -50,7 +50,7 @@ const SKILLS_DATA = [
             "Java has been my go-to language for backend development, supporting the creation of robust, enterprise-level applications.",
     },
     {
-        path: "/images/icon/spring_boot.png",
+        path: "/images/icon/Spring_Boot.png",
         alt: "Spring",
         description: "Spring Boot has enabled me to quickly build scalable microservices for complex backend systems.",
     },
@@ -85,7 +85,7 @@ const SKILLS_DATA = [
             "MongoDB’s flexible schema has been particularly useful in projects with evolving data requirements.",
     },
     {
-        path: "/docker.svg",
+        path: "/Docker.svg",
         alt: "Docker",
         description:
             "Docker has enabled me to containerize applications, ensuring consistency across development, testing, and production environments.",
