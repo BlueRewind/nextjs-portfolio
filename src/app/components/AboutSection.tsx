@@ -8,9 +8,9 @@ import { TAB_DATA } from "./AboutData";
 
 export const AboutSection = () => {
     const [tab, setTab] = useState(TAB_DATA[0].id);
-    const [_isPending, startTransition] = useTransition();
+    const [isPending, startTransition] = useTransition();
 
-    const handleTabChange = (id) => startTransition(() => setTab(id));
+    const handleTabChange = (id: string) => startTransition(() => setTab(id));
 
     const currentTabContent = TAB_DATA.find((t) => t.id === tab)?.content;
 
